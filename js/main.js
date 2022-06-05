@@ -13,6 +13,7 @@ toggleMode.addEventListener('click', () => {
 })
 // light vs night mode end
 
+// main section text start
 
 let i = 0;
 let text = "Software Engineer";
@@ -28,8 +29,9 @@ function typeWriter() {
 	
 }
 typeWriter();		
+// main section text end
 
-
+// start on scroll animation
 // variable progress bar
 let progress = ['90%', '80%', '60%', '70%'];
 
@@ -51,52 +53,33 @@ const observer = new IntersectionObserver(entries => {
   });
   
   observer.observe(document.querySelector('#skillset'));
-// let theme = localStorage.getItem('theme')
+// end on scroll animation
 
-// if(theme == null){
-// 	setTheme('light')
-// }else{
-// 	setTheme(theme)
-// }
+// custom cursor
 
-// let themeDots = document.getElementsByClassName('theme-dot')
+const customCursor = document.querySelector('.cursor-wrapper');
+const anchorLink = document.querySelectorAll('a');
+const cursor = customCursor.querySelector('.cursor');
 
+for (anchor of anchorLink) {
+	anchor.addEventListener('mouseenter', (e) => {
+		console.log('where')
+		cursor.classList.add('cursorLink');
+	})
+	anchor.addEventListener('mouseleave', (e) => {
+		cursor.classList.remove('cursorLink');
+	})
+}
 
-// for (var i=0; themeDots.length > i; i++){
-// 	themeDots[i].addEventListener('click', function(){
-// 		let mode = this.dataset.mode
-// 		console.log('Option clicked:', mode)
-// 		setTheme(mode)
-// 	})
-// }
-
-// function setTheme(mode){
-// 	if(mode == 'light'){
-// 		document.getElementById('theme-style').href = 'default.css'
-// 	}
-
-// 	if(mode == 'blue'){
-// 		document.getElementById('theme-style').href = 'blue.css'
-// 	}
-
-// 	localStorage.setItem('theme', mode)
-// }
-
-// function reveal() {
+const moveCursor = (e)=> {
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
 	
-// 	var reveals = document.querySelectorAll("[class^=animate__]");
-// 	console.log(reveals)
-// 	for (var i = 0; i < reveals.length; i++) {
-// 	  var windowHeight = window.innerHeight;
-// 	  var elementTop = reveals[i].getBoundingClientRect().top;
-// 	  var elementVisible = 150;
-  
-// 	  if (elementTop < windowHeight - elementVisible) {
-// 		reveals[i].classList.add("animate__animated");
-// 	  } else {
-// 		reveals[i].classList.remove("animate__animated");
-// 	  }
-// 	}
-//   }
-  
-//   window.addEventListener("scroll", reveal);
+  customCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  customCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+ 
+}
+
+window.addEventListener('mousemove', moveCursor)
+
+// end custom cursor 

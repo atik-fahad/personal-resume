@@ -24,14 +24,19 @@
     <link rel="stylesheet" href="css/timeline.css" />
   </head>
   <body>
+    <div class="cursor-wrapper">
+      <div class="cursor"></div>
+    </div>
     <nav class='navbar-nav my-3'>
       <div class="container">
         <a href="#" class='navbar-brand'>
           <i class="fab fa-buysellads fa-3x"></i>
           Atik Fahad</a>
         <div class="d-flex toggle-mode">
-          <i class="fas fa-lightbulb fa-2x light day"></i>
-          <i class="fas fa-moon fa-2x night"></i>
+          <a href='#'>
+            <i class="fas fa-lightbulb fa-2x light day"></i>
+            <i class="fas fa-moon fa-2x night"></i>
+          </a>
         </div>
       </div>
     </nav>
@@ -557,6 +562,8 @@
         </div>
       </div>
     </footer>
+    
+   
     <script type="text/javascript" src="js/vendors/bootstrap.bundle.min.js"></script>
     <script src="js/vendors/gsap.min.js"></script>
     <script src="js/vendors/imagesloaded.pkgd.min.js"></script>

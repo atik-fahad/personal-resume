@@ -345,10 +345,8 @@ nav .navbar-brand:hover {
 	align-items: center;
 	padding: 5px;
 }
-.d-flex:hover {
+.d-flex a:hover {
 	color: var(--brandColor);
-	/* background-color: var(--mainColor); */
-	cursor: pointer;
 }
 .toggle-mode i {
 	display: none;
@@ -358,4 +356,48 @@ nav .navbar-brand:hover {
 }
 .toggle-mode .light {
 	display: inline-block;
+}
+
+/* custom cursor  */
+
+body, a:hover {
+	cursor: none !important;
+}
+.cursor-wrapper {
+	position: fixed;
+	opacity: 1;
+	width: 100px;
+	height: 100px;
+	left: -50px;
+	top: -50px;
+	transform: translate(-100%, -100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10000;
+	pointer-events: none;
+	mix-blend-mode: difference;
+}
+.cursor {
+	background: var(--brandColor);
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	border: 2px solid var(--brandColor);
+	position: relative;
+	top: 0;
+	left: 0;
+	transform: scale(1);
+	transition: width .3s ease-in-out, height .3s ease-in-out, background .3s ease-in-out, transform .3s ease-in-out;
+	transform-origin: center;
+}
+.cursorLink {
+	width: 40px;
+	height: 40px;
+}
+
+
+/* custom cursor end  */
+.toggle-mode a {
+	color: #fff
 }
