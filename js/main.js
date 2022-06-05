@@ -57,19 +57,28 @@ const observer = new IntersectionObserver(entries => {
 
 // custom cursor
 
-const customCursor = document.querySelector('.cursor-wrapper');
-const anchorLink = document.querySelectorAll('a');
-const cursor = customCursor.querySelector('.cursor');
-
-for (anchor of anchorLink) {
+function addEventForCursor(anchor) {
 	anchor.addEventListener('mouseenter', (e) => {
-		console.log('where')
 		cursor.classList.add('cursorLink');
 	})
 	anchor.addEventListener('mouseleave', (e) => {
 		cursor.classList.remove('cursorLink');
 	})
 }
+
+const customCursor = document.querySelector('.cursor-wrapper');
+const anchorLink = document.querySelectorAll('a');
+const cursor = customCursor.querySelector('.cursor');
+
+// a tag 
+for (anchor of anchorLink) {
+	addEventForCursor(anchor);
+}
+// toggle button
+addEventForCursor(toggleMode);
+addEventForCursor(document.querySelector('.cardList__btn.btn--left'))
+addEventForCursor(document.querySelector('.cardList__btn.btn--right'))
+addEventForCursor(document.querySelector('.submit.btn-primary'))
 
 const moveCursor = (e)=> {
   const mouseY = e.clientY;

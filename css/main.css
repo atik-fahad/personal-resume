@@ -345,7 +345,7 @@ nav .navbar-brand:hover {
 	align-items: center;
 	padding: 5px;
 }
-.d-flex a:hover {
+.d-flex:hover {
 	color: var(--brandColor);
 }
 .toggle-mode i {
@@ -380,8 +380,8 @@ body, a:hover {
 }
 .cursor {
 	background: var(--brandColor);
-	width: 6px;
-	height: 6px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
 	border: 2px solid var(--brandColor);
 	position: relative;
@@ -391,13 +391,12 @@ body, a:hover {
 	transition: width .3s ease-in-out, height .3s ease-in-out, background .3s ease-in-out, transform .3s ease-in-out;
 	transform-origin: center;
 }
+
 .cursorLink {
 	width: 40px;
 	height: 40px;
+	background-color: transparent;
 }
 
 
 /* custom cursor end  */
-.toggle-mode a {
-	color: #fff
-}
