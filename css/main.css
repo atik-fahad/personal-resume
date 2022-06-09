@@ -10,6 +10,9 @@ body {
 
   --brandColor: #5f99ff;
 }
+body {
+  overflow-x: hidden;
+}
 body.dark-mode {
   --mainBackground: #060606;
   --secondaryBackground: #060606;
