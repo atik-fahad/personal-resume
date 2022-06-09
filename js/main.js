@@ -35,24 +35,53 @@ typeWriter();
 // variable progress bar
 let progress = ['90%', '80%', '60%', '70%'];
 
-
 const observer = new IntersectionObserver(entries => {
 	entries.forEach(entry => {
 	  if (entry.isIntersecting && entry.target.id == 'skillset') {
 		  document.querySelector('.skillset-main').classList.add('animate__animated', 'animate__fadeInLeft', 'animate__slower');
 		  document.querySelector('.elaboration').classList.add('animate__animated', 'animate__fadeInRight', 'animate_slower');
 		  let progressBar = document.querySelectorAll('.progress-bar');
-		  console.log(progressBar)
 		  progressBar.forEach((el, x) => {
 			  el.style.width = progress[x];
 		  })
-		  
-		
 	  }
+	  else if (entry.isIntersecting && entry.target.id == 'process-animate') {
+		document.querySelector('#pn_1').classList.add('animate__animated', 'animate__lightSpeedInLeft');
+		document.querySelector('#pn_2').classList.add('animate__animated', 'animate__lightSpeedInLeft', 'animate__slow');
+		document.querySelector('#pn_3').classList.add('animate__animated', 'animate__lightSpeedInLeft', 'animate__slower');
+		document.querySelector('#pn_4').classList.add('animate__animated', 'animate__lightSpeedInLeft', 'animate__delay-2s');
+		document.querySelector('#pn_5').classList.add('animate__animated', 'animate__lightSpeedInLeft', 'animate__slow', 'animate__delay-2s');
+		document.querySelector('#pn_6').classList.add('animate__animated', 'animate__lightSpeedInLeft', 'animate__slower', 'animate__delay-2s');
+
+		document.querySelector('#iv_1').classList.add('animate__animated', 'animate__fadeInUp');
+		document.querySelector('#iv_2').classList.add('animate__animated', 'animate__fadeInUp', 'animate__slow');
+		document.querySelector('#iv_3').classList.add('animate__animated', 'animate__fadeInUp', 'animate__slower');
+		document.querySelector('#iv_4').classList.add('animate__animated', 'animate__fadeInUp', 'animate__delay-2s');
+		document.querySelector('#iv_5').classList.add('animate__animated', 'animate__fadeInUp', 'animate__slow', 'animate__delay-2s');
+		document.querySelector('#iv_6').classList.add('animate__animated', 'animate__fadeInUp', 'animate__slower', 'animate__delay-2s');
+	}
+	else if (entry.isIntersecting && entry.target.id == 'career') {
+
+		document.querySelector('#c_1').classList.add('animate__animated', 'animate__slideInRight');
+		document.querySelector('#c_2').classList.add('animate__animated', 'animate__slideInLeft', 'animate__slow');
+		document.querySelector('#c_3').classList.add('animate__animated', 'animate__slideInRight', 'animate__slower');
+		document.querySelector('#c_4').classList.add('animate__animated', 'animate__slideInLeft', 'animate__delay-2s');
+		document.querySelector('#c_5').classList.add('animate__animated', 'animate__slideInRight', 'animate__slow', 'animate__delay-2s');
+		document.querySelector('#c_6').classList.add('animate__animated', 'animate__slideInLeft', 'animate__slower', 'animate__delay-2s');
+	}
+	else if (entry.isIntersecting && entry.target.id == 'contact') {
+
+		document.querySelector('#contact-t1').classList.add('animate__animated', 'animate__zoomIn', 'animate__slow');
+		document.querySelector('#contact-t2').classList.add('animate__animated', 'animate__slideInLeft', 'animate__slow');
+		document.querySelector('#contact-t3').classList.add('animate__animated', 'animate__slideInRight', 'animate__slow');
+	}
 	});
   });
   
   observer.observe(document.querySelector('#skillset'));
+  observer.observe(document.querySelector('#process-animate'));
+  observer.observe(document.querySelector('#career'));
+  observer.observe(document.querySelector('#contact'));
 // end on scroll animation
 
 // custom cursor
