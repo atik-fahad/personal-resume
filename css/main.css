@@ -454,3 +454,19 @@ footer a:hover {
 /* * {
 	outline: 1px solid red;
 } */
+
+#result-to-email i {
+  color: var(--brandColor);
+}
+#result-to-email i.not-needed {
+  display: none;
+}
+.not-needed {
+  display: none;
+}
+#result-to-email {
+  font-size: 1.2em;
+}
+.form-control {
+  color: var(--secondaryColor);
+}
