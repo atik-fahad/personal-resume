@@ -1,4 +1,16 @@
-:root {
+body {
+  --mainBackground: #f3f0ea;
+  --secondaryBackground: #fff6ea;
+  --mainColor: #354259;
+  --secondaryColor: rgb(153, 153, 153);
+  --opacityMSection: 0;
+  --processGradient: #f3f0ea;
+  --skillBackground: #f0f0f0;
+  --brandBackground: #f0f0f0;
+
+  --brandColor: #5f99ff;
+}
+body.dark-mode {
   --mainBackground: #060606;
   --secondaryBackground: #060606;
   --mainColor: #fff;
@@ -7,17 +19,6 @@
   --processGradient: rgba(0, 0, 0, 0.49);
   --skillBackground: var(--mainBackground);
   --brandBackground: var(--mainBackground);
-
-  /* --mainBackground: #f3f0ea;
-  --secondaryBackground: #fff6ea;
-  --mainColor: #354259;
-  --secondaryColor: rgb(153, 153, 153);
-  --opacityMSection: 0;
-  --processGradient: #f3f0ea;
-  --skillBackground: #f0f0f0;
-  --brandBackground: #f0f0f0; */
-
-  --brandColor: #5f99ff;
 }
 html {
   scroll-behavior: smooth;
