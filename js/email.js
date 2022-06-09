@@ -25,7 +25,7 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
         if (!validateEmail(email)) {
             document.querySelector('#result-text').innerHTML = 'Use a valid email!';
             return; 
-Kl        }
+       }
     }
     let data = { name, email, description };
     fetch('../contact-form/contact-form.php', {
@@ -35,12 +35,9 @@ Kl        }
     },
     body: JSON.stringify(data),
     })
-    .then(response => {
-        document.querySelector('#result-text').innerHTML = 'Mail is sent successfully!';
-        // response.json();
-        console.log(response.json());
-    })
+    .then(response => response.json())
     .then(data => {
+        // document.querySelector('#result-text').innerHTML = 'Mail is sent successfully!';
     console.log('Success:', data);
     })
     .catch((error) => {
