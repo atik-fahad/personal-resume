@@ -19,14 +19,25 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
     let description = document.querySelector('#description').value;
     if(name == '' || email == '' || description == '') {
         document.querySelector('#result-text').innerHTML = 'Fill out all inputs!';
+        document.querySelector('#result-to-email').classList.add('alert-danger');
+        setTimeout(() => {
+            document.querySelector('#result-text').innerHTML = '';
+            document.querySelector('#result-to-email').classList.remove('alert-danger');
+            }, 3000);
         return;
     }
     if (email != '') {
         if (!validateEmail(email)) {
             document.querySelector('#result-text').innerHTML = 'Use a valid email!';
+            document.querySelector('#result-to-email').classList.add('alert-danger');
+            setTimeout(() => {
+                document.querySelector('#result-text').innerHTML = '';
+                document.querySelector('#result-to-email').classList.remove('alert-danger');
+            }, 3000);
             return; 
        }
     }
+    document.querySelector('#result-to-email i').classList.remove('not-needed');
     let data = { name, email, description };
     fetch('../contact-form/contact-form.php', {
     method: 'POST',
@@ -39,9 +50,11 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
     .then(data => {
         if(data.hasOwnProperty('type')) {
             if(data['type'] == 'success') {
+    document.querySelector('#result-to-email i').classList.add('not-needed');
                 document.querySelector('#result-text').innerHTML = data['message'];
                 return;
             }
+    document.querySelector('#result-to-email i').classList.add('not-needed');
             document.querySelector('#result-text').innerHTML = data['message'];
         }
     })

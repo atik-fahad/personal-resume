@@ -470,3 +470,6 @@ footer a:hover {
 .form-control {
   color: var(--secondaryColor);
 }
+#result-text {
+  color: inherit;
+}
