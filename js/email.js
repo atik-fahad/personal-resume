@@ -28,7 +28,6 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
 Kl        }
     }
     let data = { name, email, description };
-    console.log(JSON.stringify(data))
     fetch('../contact-form/contact-form.php', {
     method: 'POST',
     headers: {
@@ -38,7 +37,8 @@ Kl        }
     })
     .then(response => {
         document.querySelector('#result-text').innerHTML = 'Mail is sent successfully!';
-        response.json();
+        // response.json();
+        console.log(response.json());
     })
     .then(data => {
     console.log('Success:', data);

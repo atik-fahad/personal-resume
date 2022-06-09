@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
-$responseArray = array('type' => 'danger', 'message' => $errorMessage);
-echo json_encode($responseArray);
+$data = json_decode($_POST['data']);
+echo json_encode($data);
 
 // // configure
 // $from = 'info@yourdomain.com'; // Replace it with Your Hosting Admin email. REQUIRED!
