@@ -50,12 +50,22 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
     .then(data => {
         if(data.hasOwnProperty('type')) {
             if(data['type'] == 'success') {
-    document.querySelector('#result-to-email i').classList.add('not-needed');
+                document.querySelector('#result-to-email i').classList.add('not-needed');
+                document.querySelector('#result-to-email').classList.add('alert-success');
                 document.querySelector('#result-text').innerHTML = data['message'];
+                setTimeout(() => {
+                    document.querySelector('#result-text').innerHTML = '';
+                    document.querySelector('#result-to-email').classList.remove('alert-success');
+                }, 3000);
                 return;
             }
-    document.querySelector('#result-to-email i').classList.add('not-needed');
+            document.querySelector('#result-to-email i').classList.add('not-needed');
+            document.querySelector('#result-to-email').classList.add('alert-danger');
             document.querySelector('#result-text').innerHTML = data['message'];
+            setTimeout(() => {
+                document.querySelector('#result-text').innerHTML = '';
+                document.querySelector('#result-to-email').classList.remove('alert-danger');
+            }, 3000);
         }
     })
     .catch((error) => {
