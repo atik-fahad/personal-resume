@@ -37,8 +37,13 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
     })
     .then(response => response.json())
     .then(data => {
-        // document.querySelector('#result-text').innerHTML = 'Mail is sent successfully!';
-    console.log('Success:', data);
+        if(data.hasOwnProperty('type')) {
+            if(data['type'] == 'success') {
+                document.querySelector('#result-text').innerHTML = data['message'];
+                return;
+            }
+            document.querySelector('#result-text').innerHTML = data['message'];
+        }
     })
     .catch((error) => {
     console.error('Error:', error);
