@@ -5,7 +5,7 @@ document.querySelector('button[type=submit]').addEventListener('click', (e) => {
     let description = document.querySelector('#description').value;
     let data = { name, email, description };
     console.log(JSON.stringify(data))
-    fetch('../contact-form.php', {
+    fetch('../contact-form/contact-form.php', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
