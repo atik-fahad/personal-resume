@@ -473,3 +473,28 @@ footer a:hover {
 #result-text {
   color: inherit;
 }
+
+/* portfolio alternative */
+.pswp__custom-caption {
+  background: var(--brandColor);
+  font-size: 16px;
+  color: #fff;
+  width: calc(100% - 32px);
+  max-width: 400px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+}
+.pswp__custom-caption a {
+  color: #fff;
+  text-decoration: underline;
+}
+.hidden-caption-content {
+  display: none;
+}
+.hide {
+  display: none;
+}

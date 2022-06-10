@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="css/vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="css/vendors/fa-all.min.css" />
     <link rel="stylesheet" href="css/vendors/animate.min.css" />
+    <link rel="stylesheet" href="css/vendors/photoswipe.css">
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" href="css/slider.css" />
     <link rel="stylesheet" href="css/timeline.css" />
@@ -218,6 +219,54 @@
             <i class="fas fa-project-diagram"></i>
           </span>
         </h2>
+        <div class="container hide" id='fallback'>
+            <div class="pswp-gallery d-flex justify-content-around my-5" id="portfolio-gallery">
+              <a
+                href="images/project__1.jpg"
+                data-pswp-width="640"
+                data-pswp-height="427"
+                target="_blank"
+                
+              >
+                <img
+                  src="images/project__1.jpg"
+                  alt="Development of Dashboard Backend"
+                  height='200'
+                  class='img-fluid'
+                />
+              </a>
+              <a
+                href="images/project__3.jpg"
+                data-pswp-width="640"
+                data-pswp-height="640"
+                target="_blank"
+              >
+                <img
+                  src="images/project__3.jpg"
+                  alt="Keeping eye on the world"
+                  height='200'
+                  class='img-fluid'
+                />
+              </a>
+              <a
+                href="images/project__2.jpg"
+                data-pswp-width="640"
+                data-pswp-height="427"
+                target="_blank"
+              >
+                <img
+                  src="images/project__2.jpg"
+                  alt="UX Design for large distributed system"
+                  height='300'
+                  class='img-fluid'
+                />
+              </a>
+              
+              
+              
+            </div>
+        </div>
+        
         <div class="app">
           <div class="cardList">
             <button class="cardList__btn btn btn--left">
@@ -597,6 +646,42 @@
     <script src="js/vendors/imagesloaded.pkgd.min.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/email.js"></script>
+    <script src="js/vendors/photoswipe.umd.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/vendors/photoswipe-lightbox.umd.min.js"></script>
+    <script type="text/javascript">
+      var lightbox = new PhotoSwipeLightbox({
+        gallery: '#portfolio-gallery',
+        children: 'a',
+        pswpModule: PhotoSwipe 
+      });
+      lightbox.on('uiRegister', function() {
+  lightbox.pswp.ui.registerElement({
+    name: 'custom-caption',
+    order: 9,
+    isButton: false,
+    appendTo: 'root',
+    html: 'Caption text',
+    onInit: (el, pswp) => {
+      lightbox.pswp.on('change', () => {
+        const currSlideElement = lightbox.pswp.currSlide.data.element;
+        let captionHTML = '';
+        if (currSlideElement) {
+          const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content');
+          if (hiddenCaption) {
+            // get caption from element with class hidden-caption-content
+            captionHTML = hiddenCaption.innerHTML;
+          } else {
+            // get caption from alt attribute
+            captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
+          }
+        }
+        el.innerHTML = captionHTML || '';
+      });
+    }
+  });
+});
+      lightbox.init();
+    </script>
   </body>
 </html>
