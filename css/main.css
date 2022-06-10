@@ -3,7 +3,7 @@ body {
   --secondaryBackground: #fff6ea;
   --mainColor: #354259;
   --secondaryColor: rgb(153, 153, 153);
-  --opacityMSection: 0;
+  --opacityMSection: 0.1;
   --processGradient: #f3f0ea;
   --skillBackground: #f0f0f0;
   --brandBackground: #f0f0f0;
@@ -113,8 +113,23 @@ nav .navbar-brand:hover {
   height: 100%;
   display: inline-block;
   opacity: var(--opacityMSection);
-  background-image: url(../images/banner__gradient.jpg);
   background-size: cover;
+}
+body.dark-mode .main-image .banner-effect::after {
+  background-image: url(../images/banner__gradient.jpg);
+}
+body .main-image .banner-effect::after {
+  background-image: url(../images/front-banner.jpg);
+}
+.banner-dark,
+.banner-light {
+  display: none;
+}
+body.dark-mode .main-image .banner-dark {
+  display: block;
+}
+body:not(.dark-mode) .main-image .banner-light {
+  display: block;
 }
 /* responsive for hero */
 @media only screen and (max-width: 768px) {
@@ -407,7 +422,7 @@ footer a:hover {
 
 /* custom cursor  */
 
-@media only screen and (min-width: 540px) {
+@media only screen and (min-width: 767px) {
   body,
   a:hover {
     cursor: none !important;
